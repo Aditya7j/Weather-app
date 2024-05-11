@@ -1,0 +1,306 @@
+/* General styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url("https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    color: #fff;
+    animation: fadeIn 1s ease-out; /* Fade-in animation for the body */
+}
+
+/* Main container */
+.main-container-box {
+    width: 95%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* Weather box */
+.single-modal-weather-box {
+    border-radius: 1rem;
+    margin: 1rem auto;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    line-height: 1.6;
+    font-size: 1.2rem;
+    animation: slideIn 1s ease-out; /* Slide-in animation for the weather box */
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+    font-family: 'Georgia', serif;
+    text-transform: uppercase;
+    margin: 1rem;
+}
+
+.weather_text {
+    background: linear-gradient(45deg, #ffcc00, #ff0066, #00ccff); /* Add linear gradient color */
+    background-size: 600% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientChange 5s linear infinite; /* Add animation for gradient change */
+}
+.discover-text {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 10rem;
+    animation: fadeInUp 1s ease-out; /* Fade-in and slide-up animation for the discover text */
+}
+
+/* Input */
+input {
+    width: calc(70% - 30px); /* Adjusted width to prevent overlap */
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s, transform 0.2s ease;
+    border-radius: 7px;
+    border: 1px solid #fff;
+    margin-left: 1rem;
+    margin-right: 15px; /* Added margin to separate from the button */
+    animation: slideInRight 1s ease-out; /* Slide-in animation from right for inputs */
+}
+
+input:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-color: #ccc;
+    transform: scale(1.01);
+}
+
+/* Button */
+.btn-search, .btn-geolocation {
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #015A88;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s, transform 0.2s ease;
+    border-radius: 7px;
+    border: 1px solid #fff;
+    animation: slideInLeft 1s ease-out; /* Slide-in animation from left for buttons */
+}
+
+.btn-search:hover, .btn-geolocation:hover {
+    background-color: #014169;
+    transform: scale(1.05);
+}
+
+/* Info tag text */
+.info-tag-text {
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.info-tag-text:hover {
+    border-bottom: 1px solid #015A88;
+}
+
+/* Loader */
+.img-loader-box,
+.no-data-box {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-loader {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* No data message */
+.no-data-text {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: red;
+    letter-spacing: .1rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* DetailedReport.css */
+
+.weather-container {
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.date-section {
+    position: relative;
+    margin-bottom: 20px;
+    width: 30%;
+}
+
+.date-section .date-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.weather-list {
+    list-style: none;
+    padding: 0;
+}
+
+.weather-item {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.weather-item p {
+    margin: 5px 0;
+}
+
+.hovered-data {
+    display: none;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    color: #000;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 1;
+    overflow: hidden;
+    overflow-y: scroll;
+    width: 300px;
+    height: 200px;
+    transition: opacity 10s ease;
+}
+
+.date-section:hover .hovered-data {
+    display: block;
+}
+
+.hovered-data ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.hovered-data .extra-item {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.hovered-data .extra-item:last-child {
+    border-bottom: none;
+}
+
+
+.history-container{
+    height: 300px;
+    padding: 1rem;
+    overflow: scroll;
+    margin: 1rem;
+    border-radius: 7px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.history-container ul{
+    list-style-type: decimal-leading-zero;
+    padding: 1rem;
+}
+
+.history-container ul li{
+    text-transform: uppercase;
+    padding: 1rem;
+}
+
+.history-container ul li:hover{
+    background-color:#edf5f4;
+    color: #000;
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(50px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-50px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes gradientChange {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@media screen and (max-width:768px) {
+        .btn-geolocation{
+            margin: 1rem;
+            width: 70%;
+        }
+}
